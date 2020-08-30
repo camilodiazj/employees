@@ -1,11 +1,12 @@
 package com.tech.exam.service;
 
 import com.tech.exam.api.mappers.IEmployeeMapper;
+import com.tech.exam.api.model.EmployeeRequest;
 import com.tech.exam.api.model.EmployeeResponse;
-import com.tech.exam.repository.daos.IEmployeeDao;
-import com.tech.exam.repository.entity.Employee;
 import com.tech.exam.exceptions.BusinessException;
 import com.tech.exam.exceptions.ServiceException;
+import com.tech.exam.repository.daos.IEmployeeDao;
+import com.tech.exam.repository.entity.Employee;
 import java.util.List;
 import java.util.stream.Collectors;
 import lombok.extern.log4j.Log4j2;
@@ -28,12 +29,12 @@ public class EmployeeServiceImpl implements IEmployeeService {
 
   @Override
   @Transactional
-  public void create(Employee employee) throws ServiceException {
+  public void create(EmployeeRequest employee) throws ServiceException {
     try {
-      iEmployeeDao.save(employee);
+      iEmployeeDao.save(employeeMapper.employeeRequestToEmployeeEntity(employee));
     } catch (Exception e) {
-      log.error("Error EmployeeServiceImpl::create", e);
-      throw new ServiceException("Error EmployeeServiceImpl::create", e);
+      log.error("Error EmployeeServiceImpl::create");
+      throw new ServiceException("Error EmployeeServiceImpl::create");
     }
   }
 
@@ -47,7 +48,7 @@ public class EmployeeServiceImpl implements IEmployeeService {
     } catch (BusinessException e) {
       log.error("Employee not found", e);
       throw e;
-    } catch (Exception e){
+    } catch (Exception e) {
       log.error("Error EmployeeServiceImpl::findAll", e);
       throw new ServiceException("Error EmployeeServiceImpl::findById", e);
     }
@@ -105,7 +106,7 @@ public class EmployeeServiceImpl implements IEmployeeService {
       iEmployeeDao.save(employee);
     } catch (BusinessException e) {
       throw e;
-    } catch (Exception e){
+    } catch (Exception e) {
       log.error("Error EmployeeServiceImpl::setBoss", e);
       throw new ServiceException("Error EmployeeServiceImpl::setBoss", e);
     }

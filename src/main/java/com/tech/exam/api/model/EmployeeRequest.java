@@ -1,11 +1,13 @@
 package com.tech.exam.api.model;
 
-import com.tech.exam.repository.entity.Employee;
+import javax.validation.constraints.NotBlank;
 import lombok.Data;
 
 @Data
-public class EmployeeRequest { //TODO: THON ABOUT UPDATE. need an ID
+public class EmployeeRequest {
+
+  @NotBlank(message = "fullName is mandatory")
   private String fullName;
+  @NotBlank(message = "function is mandatory")
   private String function;
-  private Employee boss;
 }

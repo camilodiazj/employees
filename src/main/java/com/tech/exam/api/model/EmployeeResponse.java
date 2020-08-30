@@ -8,5 +8,5 @@ public class EmployeeResponse {
   private Long id;
   private String fullName;
   private String function;
-  private Employee boss;
+  private String boss;
 }
