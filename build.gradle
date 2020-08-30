@@ -21,7 +21,7 @@ repositories {
 dependencies {
     implementation("org.mapstruct:mapstruct-jdk8:${mapStructVersion}")
     annotationProcessor("org.mapstruct:mapstruct-processor:${mapStructVersion}")
-    compile ("org.hibernate:hibernate-validator:${hibernateValidator}")
+    compile("org.hibernate:hibernate-validator:${hibernateValidator}")
     implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
     implementation 'org.springframework.boot:spring-boot-starter-web'
     compileOnly 'org.projectlombok:lombok'

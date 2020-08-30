@@ -4,6 +4,7 @@ import lombok.Data;
 
 @Data
 public class ErrorResponse {
+
   private Boolean error;
   private String code;
   private String description;

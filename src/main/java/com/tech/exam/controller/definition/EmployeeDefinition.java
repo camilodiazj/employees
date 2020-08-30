@@ -33,7 +33,8 @@ public interface EmployeeDefinition {
   ResponseEntity<String> update(@RequestBody Employee employee) throws ServiceException;
 
   @PutMapping("/boss")
-  ResponseEntity<String> setBoss(@RequestParam Long idBoss,@RequestParam Long idEmployee) throws ServiceException;
+  ResponseEntity<String> setBoss(@RequestParam Long idBoss, @RequestParam Long idEmployee)
+      throws ServiceException;
 
   @DeleteMapping("/{id}")
   ResponseEntity<String> deleteById(@PathVariable Long id) throws ServiceException;

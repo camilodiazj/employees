@@ -15,16 +15,16 @@ import lombok.Data;
 @Table(name = "employee")
 public class Employee {
 
- @Id
- @GeneratedValue(strategy = GenerationType.IDENTITY)
- private Long id;
- @Basic
- @Column(name = "full_name",nullable = false, unique = true)
- private String fullName;
- @Basic
- @Column(nullable = false)
- private String function;
- @ManyToOne
- private Employee boss;
+  @Id
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
+  private Long id;
+  @Basic
+  @Column(name = "full_name", nullable = false, unique = true)
+  private String fullName;
+  @Basic
+  @Column(nullable = false)
+  private String function;
+  @ManyToOne
+  private Employee boss;
 
 }
